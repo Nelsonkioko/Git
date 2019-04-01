@@ -1,0 +1,157 @@
+@import url('https://fonts.googleapis.com/css?family=Fredoka+One');
+
+h1 {
+  font-family: 'Fredoka One', cursive;
+  text-align: center;
+  font-size: 40px;
+  text-transform: lowercase;
+}
+
+#git {
+  width: 70px;
+}
+
+#userpic {
+  width: 200px;
+  border-radius: 150px;
+  margin-left: 50px;
+  margin-right: 500px;
+}
+
+#search {
+  float: right;
+  margin-right: 40px;
+}
+
+p {
+  font-size: 25px;
+  font-family: 'Fredoka One', cursive;
+  width: inherit;
+}
+
+.repos {
+  float: right;
+  margin-right: 350px;
+  padding: 20px;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  float: left;
+}
+
+#headname {
+  margin-left: 40px;
+  margin-top: 12px;
+}
+
+#headimg {
+  margin-left: 170px;
+  margin-top: 25px;
+}
+
+#headsrch {
+  margin-left: 460px;
+  margin-top: 25px;
+}
+
+/*results  */
+#rstimg {
+  width: 200px;
+  border-radius: 150px;
+  float: left;
+  margin-right: 20px;
+}
+
+#avatar_url {
+  width: 110px;
+  border-radius: 60px;
+}
+
+#ui {
+  width: 220px;
+  height: 200px;
+  margin-right: 20px;
+}
+
+.segment {
+  width: inherit;
+}
+
+body {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+#wrapper {
+  width: 1005px;
+  margin: 0 auto;
+  padding: 0;
+  overflow: auto;
+}
+
+#leftcolumn {
+  width: 250px;
+  background-color: black;
+  padding: 0;
+  margin: 0;
+  display: block;
+  border: 1px solid white;
+  position: fixed;
+}
+
+#rightcolumn {
+  width: 750px;
+  background-color: #777;
+  display: block;
+  float: left;
+  border: 1px solid white;
+}
+
+#blue {
+  color: blue;
+}
+
+#red {
+  color: red;
+}
+
+#golden {
+  color: #FFDF00;
+}
+
+#green {
+  color: green;
+}
+
+#jayz {
+  width: 65px;
+  margin-left: 380px;
+  border-radius: 100px;
+}
+
+#time {
+  font-size: 20px;
+  font-family: 'Fredoka One', cursive;
+  color: black;
+  animation: blink 1s linear infinite;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: .5;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}

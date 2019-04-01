@@ -3,6 +3,7 @@ import { HttpClient} from '@angular/common/http';
 import {GitService} from './git.service';
 import { User } from './user';
 import {TimePipe} from './time.pipe'
+import { environment } from 'src/environments/environment';
 
 
 @Component({
@@ -11,7 +12,6 @@ import {TimePipe} from './time.pipe'
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'githubs';
 
   today: number = Date.now();
 
@@ -30,7 +30,7 @@ export class AppComponent {
 
 
   search(){
-    this.http.get('https://api.github.com/users/' + this.username + '?access_token=4fe3329307fd3fd0c3d14287d31116739c20e87e')
+    this.http.get('https://api.github.com/users/' + this.username + '?access_token='+environment.key)
     .subscribe ((response) => {
       this.response = response;
       console.log(this.response);
@@ -38,4 +38,3 @@ export class AppComponent {
   }
 
 }
-
