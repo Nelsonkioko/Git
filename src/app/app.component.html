@@ -1,104 +1,61 @@
-<ng-progress></ng-progress>
-<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
-<script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
-
-<body>
-  <!--heading  -->
-
-  <ul>
-
-    <li id="headname">
-      <p appLine><em><a routerLink='/repos' routerLinkActive='active'>Repos</a></em></p>
-
-    </li>
-
-
-    <li id="headimg">
-      <h1><img src="https://png.pngtree.com/svg/20160530/git__62079.png" alt="" id="git">User <span id="blue">S</span><span id="red">E</span><span id="golden">A</span><span id="blue">R</span><span id="green">C</span><span id="red">H</span></h1>
-    </li>
-
-    <li> <a href="https://github.com/blackadams"><img src="{{response.avatar_url}}" alt="" id="jayz"><span id="time" class="blink">{{today | date:'shortTime'}}</span></a>  </li>
-
-  <br><br><br><br><br><br><br><br><br>
-    <li id="headsrch">
-      <div class="ui massive action input" id="search">
-        <input type="text" placeholder="Search user..." [(ngModel)]="username">
-        <button class="ui icon button" (click)="search()">
-          <i class="search icon"></i>
-        </button>
-      </div>
-    </li>
-  </ul>
-
-
-  <br><br><br><br><br>
-
-
-
-
-  <div class="container">
-
-
-  <div class="repos">
-
-      <br>
-
-      <div class="ui segment">
-        <div class="ui two column very relaxed grid">
-          <div class="column">
-
-            <p> <img src="{{response.avatar_url}}" alt="" id="avatar_url" id="ui"></p>
-
-          </div>
-          <div class="column">
-
-            <div class="ui labeled button" tabindex="0">
-              <div class="ui basic blue button">
-                <i class="male icon"></i> gitname
-              </div>
-              <a class="ui basic left pointing blue label" href="{{response.html_url}}">
-                {{response.login}}
-              </a>
-            </div><br><br>
-
-            <div class="ui labeled button" tabindex="0">
-              <div class="ui basic blue button">
-                <i class="male icon"></i> following
-              </div>
-              <a class="ui basic left pointing blue label">
-                {{response.following}}
-              </a>
-            </div><br><br>
-
-
-            <div class="ui labeled button" tabindex="0">
-              <div class="ui basic blue button">
-                <i class="blind icon"></i> following
-              </div>
-              <a class="ui basic left pointing blue label">
-                {{response.followers}}
-              </a>
-            </div><br><br>
-
-            <div class="ui labeled button" tabindex="0">
-              <div class="ui basic blue button">
-                <i class="code icon"></i> repository
-              </div>
-              <a class="ui basic left pointing blue label">
-                {{response.public_repos}}
-              </a>
-            </div><br><br>
+<app-git (searchUser)="search($event)"></app-git>
+<br><hr><br>
+<div class="row">
+  <div class="col-md-4">
+      <div class="card" style="width: 18rem;">
+          <img class="card-img-top" *ngIf='data'  src="{{data.avatar_url}}" alt="Card image cap">
+          <div class="card-body login">
+            <h4 *ngIf='data' class="card-text"> {{data.login}}</h4>
           </div>
         </div>
-        <div class="ui vertical divider">
-          INFO
-        </div>
-      </div>
+  </div>
+  <div class="col-md-8">
+      <span class="col-md-8">
+          <span>Repositories<span class="badge badge-pill badge-secondary">{{data.public_repos}}</span></span>
+       </span>
+     <span class="col-md-8">
+    <span>Public gists<span class="badge badge-pill badge-secondary">{{data.public_gists}}</span></span>
+   </span>
+ <span class="col-md-8">
+                                          <span>followers<span class="badge badge-pill badge-secondary">{{data.followers}}</span></span>
+ </span>
+                                                      <span class="col-md-8">
+                                               <span>following<span class="badge badge-pill badge-secondary">{{data.following}}</span></span>
+                                          </span>
+ <hr>
+                                          <br>
+ <ul class="list-group">
+  <li class="list-group-item"><strong>name </strong>{{data.login}}</li>
+  <li class="list-group-item"><strong>location </strong>{{data.location}}</li>
+  <li class="list-group-item"><strong>email </strong> {{data.email}}</li>
+  <li class="list-group-item"><strong>blog </strong> {{data.blog}}</li>
+  <li class="list-group-item"><strong>created at </strong>{{data.created_at}}</li>
+ </ul>
 
   </div>
-  </div>
-</body>
+        
+   </div>
+   <br><hr><br>
+   <div class="row">
+     <div class="col-md-2"></div>
+     <div class="col-md-8">
+        <h4 class="card-header"> <em> <b>Repositories</b></em> </h4>
+        <div class="card-body" *ngFor='let repo of repos'>
+          
+            <h4 > <a href="{{repo.html_url}} " target="_blank">{{repo.name}} 
+
+              </a>
+            </h4>
+            <p>{{repo.description}}</p>
+            <hr>
+          </div>
+     </div>
+     
+        <div class="col-md-2"></div>
+   </div>
+      
+  
+
 
 
 <router-outlet></router-outlet>

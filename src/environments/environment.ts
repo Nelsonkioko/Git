@@ -4,8 +4,9 @@
 
 export const environment = {
   production: false,
-  key:"91c2c4a548899217630d5603a11a9d941f758a46"
-};
+  apiUrl:"https://api.github.com/users/",
+  key:"9ed38652e2f1de5afc6cc403d686761a6855039a" 
+}
 
 /*
  * For easier debugging in development mode, you can import the following file

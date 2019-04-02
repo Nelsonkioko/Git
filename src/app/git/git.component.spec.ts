@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ReposComponent } from './repos.component';
+import { GitComponent } from './git.component';
 
-describe('ReposComponent', () => {
-  let component: ReposComponent;
-  let fixture: ComponentFixture<ReposComponent>;
+describe('GitComponent', () => {
+  let component: GitComponent;
+  let fixture: ComponentFixture<GitComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ReposComponent ]
+      declarations: [ GitComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ReposComponent);
+    fixture = TestBed.createComponent(GitComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

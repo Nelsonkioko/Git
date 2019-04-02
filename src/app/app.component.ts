@@ -1,9 +1,6 @@
-import { Component ,OnInit} from '@angular/core';
-import { HttpClient} from '@angular/common/http';
-import {GitService} from './git.service';
-import { User } from './user';
-import {TimePipe} from './time.pipe'
-import { environment } from 'src/environments/environment';
+import { Component, OnInit } from '@angular/core';
+import {GitService } from './git.service';
+import { Gitsearch } from './gitsearch';
 
 
 @Component({
@@ -11,30 +8,39 @@ import { environment } from 'src/environments/environment';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
 
-  today: number = Date.now();
+  data:any;
+  repos:any;
+  username:string;
+  constructor(private gitservice:GitService)
+  {
+    this.gitservice.getResults('Nelsonkioko').subscribe(data => {
+    
+      this.data= data;
+     });
+   
+     this.gitservice.getRepos('Nelsonkioko').subscribe(repos => {
+       
+       this.repos= repos;
+      });
 
-
-  username: string = "";
-  response: any;
-
-
-
-  constructor(private http: HttpClient){
+     
+  }
+  search(username){
+    console.log(username);
+    this.gitservice.getResults(username).subscribe(data => {
+    
+      this.data= data;
+     });
+   
+     this.gitservice.getRepos(username).subscribe(repos => {
+       
+       this.repos= repos;
+      })
   }
 
-  ngOnInit() {
+  ngOnInit(){ }
 
   }
-
-
-  search(){
-    this.http.get('https://api.github.com/users/' + this.username + '?access_token='+environment.key)
-    .subscribe ((response) => {
-      this.response = response;
-      console.log(this.response);
-    })
-  }
-
-}
+ 

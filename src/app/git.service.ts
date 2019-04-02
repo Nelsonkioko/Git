@@ -1,50 +1,24 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import {environment} from '../environments/environment'
-import { User } from './user';
-import { Repos} from './repos';
+import { HttpClient} from '@angular/common/http';
+import { Gitsearch } from './gitsearch'
+import { environment } from 'src/environments/environment';
+
+import {Repos } from './repos';
+
+
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class GitService {
-  repos:Repos;
-  constructor(private http:HttpClient) { 
-  this.repos = new Repos("","",0,0,"",0);
-  }
 
-printToConsole(arg){
-  console.log(arg);
+constructor(private http:HttpClient){}
+// Creating methods that we will use to get data from git hub
+getResults(userName){
+  return this.http.get<Gitsearch>(environment.apiUrl + userName + "?access_token=" + environment.key);
 }
-
- repoRequest(){
-   interface ApiResponse  {
-     name:string;
-     git_url:number;
-     description:string;
-     forks:number;
-     watches:number;
-     language:string;
-   }
-
-
-   let promise = new Promise((resolve,reject)=>{
-     this.http.get<ApiResponse>(environment.apiUrl + User.name +"/repos" + environment.key).toPromise().then(response=> {
-       
-        this.repos.name = response.name;
-        this.repos.git_url = response.git_url;
-        this.repos.description = response.description;
-       
-
-        
-       console.log(this.repos);
-
-     },
-     error=>{
-       console.log("Error occured");
-     })
-   })
-   return promise;
- }
-
+getRepos(userName){
+  return this.http.get<Repos>(environment.apiUrl + userName + '/repos' + "?access_token=" + environment.key);
+}
 }
