@@ -2,7 +2,7 @@
 body{
     background-image: url('https://www.lifeofpix.com/wp-content/uploads/2019/02/275-ake6472-jj-1600x1067.jpg');
     background-size: cover;
-    background-attachment: fixed;
+    background-attachment: fixed;   
 }
 .card{
     box-shadow: 0 0 15px black;
