@@ -26,7 +26,7 @@ Feel free to contact me incase of anything ;)
 
 
 ## License
-MIT License
+MIT License 
 
 Copyright (c) [2019] [Nelson Kioko]
 
