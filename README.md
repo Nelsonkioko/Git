@@ -11,7 +11,7 @@ Application that allows a user to search for git repositories.
 You will need a browser to run this site because it entirely depends on a server.
   
 
-## Technologies Used
+## Technologies Used   
 * HTML
 * CSS 
 * javascript and jquery bootstraps
