@@ -9,27 +9,14 @@
           </div>
         </div>
   </div>
-  <div class="col-md-8">
-      <span class="col-md-8">
-          <span>Repositories<span class="badge badge-pill badge-secondary">{{data.public_repos}}</span></span>
-       </span>
-     <span class="col-md-8">
-    <span>Public gists<span class="badge badge-pill badge-secondary">{{data.public_gists}}</span></span>
-   </span>
- <span class="col-md-8">
-                                          <span>followers<span class="badge badge-pill badge-secondary">{{data.followers}}</span></span>
- </span>
-                                                      <span class="col-md-8">
-                                               <span>following<span class="badge badge-pill badge-secondary">{{data.following}}</span></span>
-                                          </span>
- <hr>
-                                          <br>
+  <div class="col-md-4">
+      
  <ul class="list-group">
   <li class="list-group-item"><strong>name </strong>{{data.login}}</li>
-  <li class="list-group-item"><strong>location </strong>{{data.location}}</li>
-  <li class="list-group-item"><strong>email </strong> {{data.email}}</li>
-  <li class="list-group-item"><strong>blog </strong> {{data.blog}}</li>
-  <li class="list-group-item"><strong>created at </strong>{{data.created_at}}</li>
+  <li class="list-group-item"><strong>Repository </strong>{{data.public_repos}}</li>
+  <li class="list-group-item"><strong>Followers </strong> {{data.followers}}</li>
+  <li class="list-group-item"><strong>Following </strong> {{data.following}}</li>
+  
  </ul>
 
   </div>
@@ -47,6 +34,8 @@
               </a>
             </h4>
             <p>{{repo.description}}</p>
+            <p>Forks: {{repo.forks}}</p>
+            <p>Language used: {{repo.language}}</p>
             <hr>
           </div>
      </div>
