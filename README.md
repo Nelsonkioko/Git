@@ -9,7 +9,7 @@ Application that allows a user to search for git repositories.
 
 ## Setup/Installation Requirements
 You will need a browser to run this site because it entirely depends on a server.
-
+  
 
 ## Technologies Used
 * HTML
