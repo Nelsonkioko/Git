@@ -1,5 +1,6 @@
 <app-git (searchUser)="search($event)"></app-git>
 <br><hr><br><br><br><br><br>
+<div class="whole">
 <div class="row">
   <div class="col-md-4">
       <div class="card" style="width: 18rem;">
@@ -12,10 +13,10 @@
   <div class="col-md-4">
       
  <ul class="list-group">
-  <li class="list-group-item"><strong>name </strong>{{data.login}}</li>
-  <li class="list-group-item"><strong>Repository </strong>{{data.public_repos}}</li>
-  <li class="list-group-item"><strong>Followers </strong> {{data.followers}}</li>
-  <li class="list-group-item"><strong>Following </strong> {{data.following}}</li>
+  <li class="list-group-item"><strong>name: </strong>{{data.login}}</li>
+  <li class="list-group-item"><strong>Repository: </strong>{{data.public_repos}}</li>
+  <li class="list-group-item"><strong>Followers: </strong> {{data.followers}}</li>
+  <li class="list-group-item"><strong>Following: </strong> {{data.following}}</li>
   
  </ul>
 
@@ -26,7 +27,8 @@
    <div class="row">
      <div class="col-md-2"></div>
      <div class="col-md-8">
-        <h4 class="card-header"> <em> <b>Repositories</b></em> </h4>
+        <h4 class=""><b>Repositories</b></h4>
+        <!-- for loop to display the repos -->
         <div class="card-body" *ngFor='let repo of repos'>
           
             <h4 > <a href="{{repo.html_url}} " target="_blank">{{repo.name}} 
@@ -43,7 +45,7 @@
         <div class="col-md-2"></div>
    </div>
       
-  
+  </div>
 
 
 
